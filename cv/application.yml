@@ -12,10 +12,6 @@ spec:
     path: cv
     repoURL: https://github.com/SujithThirumalaisamy/kubecorner.git
     targetRevision: HEAD
-    directory:
-      recurse: false
-      jsonnet:
-        extVars: []
   sources: []
   project: default
   syncPolicy:
