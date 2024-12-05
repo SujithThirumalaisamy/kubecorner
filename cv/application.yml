@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cv-me
+spec:
+  destination:
+    name: ''
+    namespace: 'default'
+    server: https://kubernetes.default.svc
+  source:
+    path: cv
+    repoURL: https://github.com/SujithThirumalaisamy/kubecorner.git
+    targetRevision: HEAD
+    directory:
+      recurse: false
+      jsonnet:
+        extVars: []
+  sources: []
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
