@@ -53,7 +53,7 @@ spec:
   tls:
   - hosts:
       - api-omara.isujith.dev
-    secretName: omara-rahul-dev-tls
+    secretName: api-omara-rahul-dev-tls
   rules:
   - host: api-omara.isujith.dev
     http:
