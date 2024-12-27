@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: rahul-next
-          image: rahuldocker2/omara-next:1
+          image: rahuldocker2/omara-next:2
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
