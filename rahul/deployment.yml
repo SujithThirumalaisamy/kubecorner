@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rahul-next
+  labels:
+    app: rahul-next
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rahul-next
+  template:
+    metadata:
+      labels:
+        app: rahul-next
+    spec:
+      containers:
+        - name: rahul-next
+          image: rahulrohit/omara-next:1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rahul-node
+  labels:
+    app: rahul-node
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rahul-node
+  template:
+    metadata:
+      labels:
+        app: rahul-node
+    spec:
+      containers:
+        - name: rahul-node
+          image: rahuldocker2/omara-node:1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
