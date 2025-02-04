@@ -18,11 +18,16 @@ spec:
         - name: street-view
           image: sujiththirumalaisamy/street-food:3d4fcad2e7a6e5b76e1ea451b2e442f984bf6661
           imagePullPolicy: Always
-          env:
-            - name: DATABASE_URL
-              valueFrom:
-                secretKeyRef:
-                  name: street-view-secrets
-                  key: DATABASE_URL
+          volumeMounts:
+            - name: secret
+              mountPath: /usr/src/app/.env
+              subPath: .env
           ports:
             - containerPort: 3000
+          volumes:
+            - name: secret
+              secret:
+                secretName: street-view-secrets
+                items:
+                  - key: .env
+                    path: .env
