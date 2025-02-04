@@ -24,10 +24,10 @@ spec:
               subPath: .env
           ports:
             - containerPort: 3000
-          volumes:
-            - name: secret
-              secret:
-                secretName: street-view-secrets
-                items:
-                  - key: .env
-                    path: .env
+      volumes:
+        - name: secret
+          secret:
+            secretName: street-view-secrets
+            items:
+              - key: .env
+                path: .env
