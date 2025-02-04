@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: street-view
-          image: sujiththirumalaisamy/street-food:1
+          image: sujiththirumalaisamy/street-food:3d4fcad2e7a6e5b76e1ea451b2e442f984bf6661
           imagePullPolicy: Always
           env:
             - name: DATABASE_URL
