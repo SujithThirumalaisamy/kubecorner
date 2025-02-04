@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: street-view
+  labels:
+    app: street-view
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: street-view
+  template:
+    metadata:
+      labels:
+        app: street-view
+    spec:
+      containers:
+        - name: street-view
+          image: SujithThirumalaisamy/street-view:1
+          imagePullPolicy: Always
+          env:
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: street-view-secrets
+                  key: DATABASE_URL
+          ports:
+            - containerPort: 3000
