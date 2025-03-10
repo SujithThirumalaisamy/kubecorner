@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: street-view
-          image: sujiththirumalaisamy/street-food:bf423eab7758355bca3d08a13a2eb3c53db55efc
+          image: sujiththirumalaisamy/street-food:d23ea20e3d93252f25c44074f1cd5333f119882e
           imagePullPolicy: Always
           volumeMounts:
             - name: secret
