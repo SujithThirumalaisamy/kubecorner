@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: contest-api-service
+  name: contest-api-svc
 spec:
   selector:
     app: contest-api
@@ -28,6 +28,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: contest-api-service
+            name: contest-api-svc
             port:
               number: 80
