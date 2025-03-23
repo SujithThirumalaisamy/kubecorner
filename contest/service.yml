@@ -18,10 +18,10 @@ metadata:
 spec:
   tls:
   - hosts:
-      - contest.isujith.dev
+      - api.contest.isujith.dev
     secretName: contest-tls
   rules:
-  - host: contest.isujith.dev
+  - host: api.contest.isujith.dev
     http:
       paths:
       - path: /
