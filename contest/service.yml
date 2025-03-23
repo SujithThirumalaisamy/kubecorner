@@ -19,7 +19,7 @@ spec:
   tls:
   - hosts:
       - contest.isujith.dev
-    secretName: api-contest-tls
+    secretName: contest-tls
   rules:
   - host: contest.isujith.dev
     http:
