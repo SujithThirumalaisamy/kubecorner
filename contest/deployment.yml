@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: contest
+  labels:
+    app: contest
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: contest
+  template:
+    metadata:
+      labels:
+        app: contest
+    spec:
+      containers:
+        - name: contest
+          image: sujiththirumalaisamy/contest-api:fbc0d6d8c2740f837db3448ce29a62be6e071f93
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000

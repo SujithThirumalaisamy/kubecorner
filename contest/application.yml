@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: contest
+  namespace: argocd
+spec:
+  destination:
+    name: ''
+    namespace: 'default'
+    server: https://kubernetes.default.svc
+  source:
+    path: contest
+    repoURL: https://github.com/SujithThirumalaisamy/kubecorner.git
+    targetRevision: HEAD
+  sources: []
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
