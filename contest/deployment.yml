@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: contest
-          image: sujiththirumalaisamy/contest-api:96827de665b40bcc28a4e71e74e2673fb61e23ab
+          image: sujiththirumalaisamy/contest-api:057b620becabdcd1b4245c22b843d06639b44aab
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
