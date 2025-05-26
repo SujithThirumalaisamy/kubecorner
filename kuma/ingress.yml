@@ -15,8 +15,8 @@ spec:
     - host: uk.isujith.dev
       http:
         paths:
-          - path: /status/uk
-            pathType: Exact
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: uptime-kuma-service
