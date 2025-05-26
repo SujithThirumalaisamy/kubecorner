@@ -4,7 +4,7 @@ metadata:
   name: cv-service
 spec:
   selector:
-    app: cv-app
+    app: cv-me
   ports:
   - port: 80
     targetPort: 3000
