@@ -6,8 +6,8 @@ spec:
   selector:
     app: cv-me
   ports:
-  - port: 80
-    targetPort: 3000
+    - port: 80
+      targetPort: 3000
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -17,17 +17,17 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   tls:
-  - hosts:
-      - cv.isujith.dev
-    secretName: cv-cert
+    - hosts:
+        - cv.isujith.dev
+      secretName: cv-cert
   rules:
-  - host: cv.isujith.dev
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: cv-service
-            port:
-              number: 80
+    - host: cv.isujith.dev
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: cv-service
+                port:
+                  number: 80
