@@ -16,7 +16,7 @@ spec:
       http:
         paths:
           - path: /status/uk
-            pathType: Prefix
+            pathType: Exact
             backend:
               service:
                 name: uptime-kuma-service
