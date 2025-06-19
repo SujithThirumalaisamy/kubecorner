@@ -1,0 +1,67 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sports-hub-frontend-service
+spec:
+  selector:
+    app: sports-hub-frontend
+  ports:
+    - port: 80
+      targetPort: 3000
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sports-hub-frontend-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  tls:
+    - hosts:
+        - sports-hub.isujith.dev
+      secretName: sports-hub-frontend-cert
+  rules:
+    - host: sports-hub.isujith.dev
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: sports-hub-frontend-service
+                port:
+                  number: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sports-hub-backend-service
+spec:
+  selector:
+    app: sports-hub-backend
+  ports:
+    - port: 80
+      targetPort: 5000
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sports-hub-backend-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  tls:
+    - hosts:
+        - api-sports-hub.isujith.dev
+      secretName: sports-hub-backend-cert
+  rules:
+    - host: api-sports-hub.isujith.dev
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: sports-hub-backend-service
+                port:
+                  number: 80

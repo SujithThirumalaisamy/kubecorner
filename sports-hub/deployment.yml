@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sports-hub-frontend
+  labels:
+    app: sports-hub-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sports-hub-frontend
+  template:
+    metadata:
+      labels:
+        app: sports-hub-frontend
+    spec:
+      containers:
+        - name: sports-hub-frontend
+          image: sujiththirumalaisamy/itamizhan-sports-hub-frontend:1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sports-hub-backend
+  labels:
+    app: sports-hub-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sports-hub-backend
+  template:
+    metadata:
+      labels:
+        app: sports-hub-backend
+    spec:
+      containers:
+        - name: sports-hub-backend
+          image: sujiththirumalaisamy/itamizhan-sports-hub-backend:1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
+          volumeMounts:
+            - name: secret
+              mountPath: /app/.env
+              subPath: .env
+      volumes:
+        - name: secret
+          secret:
+            secretName: sports-hub-backend-secret
+            items:
+              - key: .env
+                path: .env
