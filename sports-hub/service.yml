@@ -18,7 +18,7 @@ metadata:
 spec:
   tls:
     - hosts:
-        - sports-hub.isujith.dev
+        - kk-sdat.isujith.dev
       secretName: sports-hub-frontend-cert
   rules:
     - host: kk-sdat.isujith.dev
@@ -55,7 +55,7 @@ spec:
         - api-kk-sdat.isujith.dev
       secretName: sports-hub-backend-cert
   rules:
-    - host: api-sports-hub.isujith.dev
+    - host: api-kk-sdat.isujith.dev
       http:
         paths:
           - path: /
@@ -65,3 +65,4 @@ spec:
                 name: sports-hub-backend-service
                 port:
                   number: 80
+
