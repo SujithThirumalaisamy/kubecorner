@@ -21,7 +21,7 @@ spec:
         - sports-hub.isujith.dev
       secretName: sports-hub-frontend-cert
   rules:
-    - host: sports-hub.isujith.dev
+    - host: kk-sdat.isujith.dev
       http:
         paths:
           - path: /
@@ -52,7 +52,7 @@ metadata:
 spec:
   tls:
     - hosts:
-        - api-sports-hub.isujith.dev
+        - api-kk-sdat.isujith.dev
       secretName: sports-hub-backend-cert
   rules:
     - host: api-sports-hub.isujith.dev

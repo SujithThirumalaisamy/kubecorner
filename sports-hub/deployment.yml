@@ -18,6 +18,9 @@ spec:
         - name: sports-hub-frontend
           image: sujiththirumalaisamy/itamizhan-sports-hub-frontend:1
           imagePullPolicy: Always
+          env:
+          - name: VITE_API_KEY
+            value: https://api-kk-sdat.itamizhan.com/
           ports:
             - containerPort: 3000
 ---
