@@ -18,10 +18,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - kk-sdat.isujith.dev
+        - kk-sdat.itamizhan.com
       secretName: sports-hub-frontend-cert
   rules:
-    - host: kk-sdat.isujith.dev
+    - host: kk-sdat.itamizhan.com
       http:
         paths:
           - path: /
@@ -52,10 +52,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - api-kk-sdat.isujith.dev
+        - api-kk-sdat.itamizhan.com
       secretName: sports-hub-backend-cert
   rules:
-    - host: api-kk-sdat.isujith.dev
+    - host: api-kk-sdat.itamizhan.com
       http:
         paths:
           - path: /
@@ -65,4 +65,3 @@ spec:
                 name: sports-hub-backend-service
                 port:
                   number: 80
-
