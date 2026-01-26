@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: vs-fe
-          image: sujiththirumalaisamy/vector-shift-fe:f7e883f4afeca22b5d2cc99a8b792e44a10ea873
+          image: sujiththirumalaisamy/vector-shift-fe:2e7b3525fd1c88667c4bdb320385d4157ae2113c
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
