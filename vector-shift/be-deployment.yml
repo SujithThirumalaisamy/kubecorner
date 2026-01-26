@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: vs-be
-          image: sujiththirumalaisamy/vs-be:v1.1
+          image: sujiththirumalaisamy/vs-be:cb3a8461e3814f54645ce51d0655dfc7be0dfc51
           imagePullPolicy: Always
           ports:
             - containerPort: 8000
