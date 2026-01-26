@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: cv-me
+  name: vector-shift
   namespace: argocd
 spec:
   destination:
@@ -9,7 +9,7 @@ spec:
     namespace: "default"
     server: https://kubernetes.default.svc
   source:
-    path: cv
+    path: vector-shift
     repoURL: https://github.com/SujithThirumalaisamy/kubecorner.git
     targetRevision: HEAD
   sources: []
