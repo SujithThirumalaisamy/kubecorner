@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: vs-be
-          image: sujiththirumalaisamy/vector-shift-be:262b271d84a54312312c4bb348b2c131481eef0a
+          image: sujiththirumalaisamy/vector-shift-be:f7e883f4afeca22b5d2cc99a8b792e44a10ea873
           imagePullPolicy: Always
           ports:
             - containerPort: 8000
