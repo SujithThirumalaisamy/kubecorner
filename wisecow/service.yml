@@ -4,7 +4,7 @@ metadata:
   name: wisecow-service
 spec:
   selector:
-    app: wisecow-me
+    app: wisecow
   ports:
     - port: 80
       targetPort: 4499
