@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: wisecow
-          image: sujiththirumalaisamy/wisecow:65f0feeb441d11aa800ad2db192af0b0a9a3eae8
+          image: sujiththirumalaisamy/wisecow:f5fbe4311b7b39c80798bb4ff720a10b2c391d2d
           imagePullPolicy: Always
           ports:
             - containerPort: 4499
