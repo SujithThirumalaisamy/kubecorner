@@ -22,7 +22,7 @@ spec:
         type: PathPrefix
         value: /
     backendRefs:
-    - name: argo-cd-argocd-server
+    - name: argocd-server
       port: 80
       weight: 1
 
