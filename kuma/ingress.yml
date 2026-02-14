@@ -1,24 +1,27 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
 metadata:
-  name: uptime-kuma
-  namespace: kuma
-  annotations:
-    kubernetes.io/ingress.class: traefik
-    cert-manager.io/cluster-issuer: letsencrypt-prod
+  name: uk-route
+  namespace: default
+
 spec:
-  tls:
-    - hosts:
-        - uk.isujith.dev
-      secretName: uk-cert
+  parentRefs:
+  - name: gateway-api
+    sectionName: http
+    kind: Gateway
+  - name: gateway-api
+    sectionName: https
+    kind: Gateway
+
+  hostnames:
+  - uk.isujith.dev
+
   rules:
-    - host: uk.isujith.dev
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: uptime-kuma-service
-                port:
-                  number: 3001
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /
+    backendRefs:
+    - name: uptime-kuma-service
+      port: 3001
+      weight: 1

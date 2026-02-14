@@ -9,25 +9,30 @@ spec:
     - port: 80
       targetPort: 8000
 ---
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
 metadata:
-  name: vs-be-ingress
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
+  name: vs-be-route
+  namespace: default
+
 spec:
-  tls:
-    - hosts:
-        - vs-be.isujith.dev
-      secretName: vs-be-cert
+  parentRefs:
+  - name: gateway-api
+    sectionName: http
+    kind: Gateway
+  - name: gateway-api
+    sectionName: https
+    kind: Gateway
+
+  hostnames:
+  - vs-be.isujith.dev
+
   rules:
-    - host: vs-be.isujith.dev
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: vs-be-service
-                port:
-                  number: 80
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /
+    backendRefs:
+    - name: vs-be.isujith.dev
+      port: 80
+      weight: 1
