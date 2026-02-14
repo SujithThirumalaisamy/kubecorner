@@ -25,6 +25,6 @@ spec:
         value: /
     backendRefs:
     - name: uptime-uptime-kuma
-      port: 3001
+      port: 80
       weight: 1
 
