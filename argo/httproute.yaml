@@ -7,9 +7,11 @@ metadata:
 spec:
   parentRefs:
   - name: gateway-api
+    namespace: default
     sectionName: http
     kind: Gateway
   - name: gateway-api
+    namespace: default
     sectionName: https
     kind: Gateway
 
