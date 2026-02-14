@@ -6,6 +6,7 @@ metadata:
 spec:
   dnsNames:
   - "*.isujith.dev"
+  - "isujith.dev"
   issuerRef:
     kind: ClusterIssuer
     name: cloudflare-issuer
