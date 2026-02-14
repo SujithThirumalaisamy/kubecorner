@@ -12,7 +12,7 @@ spec:
       port: 80
       allowedRoutes:
         namespaces:
-          from: Same  #or All or Selector
+          from: All
 
     - name: https
       protocol: HTTPS
