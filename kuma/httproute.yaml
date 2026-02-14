@@ -24,7 +24,7 @@ spec:
         type: PathPrefix
         value: /
     backendRefs:
-    - name: uptime-kuma-service
+    - name: uptime-uptime-kuma
       port: 3001
       weight: 1
 
