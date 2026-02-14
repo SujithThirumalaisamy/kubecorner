@@ -33,6 +33,6 @@ spec:
         type: PathPrefix
         value: /
     backendRefs:
-    - name: vs-be.isujith.dev
+    - name: vs-be-service
       port: 80
       weight: 1
