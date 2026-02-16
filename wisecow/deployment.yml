@@ -20,11 +20,3 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 4499
-          livenessProbe:
-            httpGet:
-              path: /
-              port: 4499
-          readinessProbe:
-            httpGet:
-              path: /
-              port: 4499
