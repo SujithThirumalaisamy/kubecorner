@@ -23,15 +23,3 @@ spec:
           envFrom:
             - secretRef:
                 name: vs-secret
-          livenessProbe:
-            httpGet:
-              path: /
-              port: 8000
-            initialDelaySeconds: 15
-            periodSeconds: 10
-          readinessProbe:
-            httpGet:
-              path: /
-              port: 8000
-            initialDelaySeconds: 15
-            periodSeconds: 10
