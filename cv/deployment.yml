@@ -5,7 +5,7 @@ metadata:
   labels:
     app: cv-me
 spec:
-  replicas: 4
+  replicas: 8
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -24,16 +24,16 @@ spec:
           image: sujiththirumalaisamy/cv:7fc3e32ee34dff745fafd914678f0b85c4a95dc9
           imagePullPolicy: Always
           ports:
-            - containerPort: 3000
+            - containerPort: 80
           livenessProbe:
             httpGet:
               path: /
-              port: 3000
+              port: 80
             initialDelaySeconds: 15
             periodSeconds: 10
           readinessProbe:
             httpGet:
               path: /
-              port: 3000
+              port:80
             initialDelaySeconds: 15
             periodSeconds: 10 
