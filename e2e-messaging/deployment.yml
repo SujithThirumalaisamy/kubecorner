@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: e2e-messaging
-          image: sujiththirumalaisamy/e2e-messaging:22cb12d04e42a7a483e6f011b6bddbe927f1cfdb
+          image: sujiththirumalaisamy/e2e-messaging:61fc3ebf19f6c962135aefa6b685fc28608c2579
           imagePullPolicy: Always
           ports:
             - containerPort: 80
