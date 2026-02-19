@@ -9,7 +9,7 @@ spec:
     namespace: "default"
     server: https://kubernetes.default.svc
   source:
-    path: cv
+    path: e2e-messaging
     repoURL: https://github.com/SujithThirumalaisamy/kubecorner.git
     targetRevision: HEAD
   sources: []
