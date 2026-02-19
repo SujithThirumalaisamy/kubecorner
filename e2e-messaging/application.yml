@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: e2e-messaging
+  namespace: argocd
+spec:
+  destination:
+    name: ""
+    namespace: "default"
+    server: https://kubernetes.default.svc
+  source:
+    path: cv
+    repoURL: https://github.com/SujithThirumalaisamy/kubecorner.git
+    targetRevision: HEAD
+  sources: []
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

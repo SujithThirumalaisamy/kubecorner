@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: e2e-messaging
+  labels:
+    app: e2e-messaging
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 50%
+  selector:
+    matchLabels:
+      app: e2e-messaging
+  template:
+    metadata:
+      labels:
+        app: e2e-messaging
+    spec:
+      containers:
+        - name: e2e-messaging
+          image: sujiththirumalaisamy/e2e-messaging:7fc3e32ee34dff745fafd914678f0b85c4a95dc9
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 7
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 7
+            periodSeconds: 5
