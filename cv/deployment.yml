@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: cv-me
-          image: sujiththirumalaisamy/cv:fe06958e30946d21d1ba4708e642bb64b5c0925a
+          image: sujiththirumalaisamy/cv:5b2e6864eaaf657cfa4e8546a836e5d7f121b9fe
           imagePullPolicy: Always
           ports:
             - containerPort: 80
