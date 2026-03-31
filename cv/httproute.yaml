@@ -14,7 +14,6 @@ spec:
     kind: Gateway
 
   hostnames:
-  - cv.isujith.dev
   - isujith.dev
 
   rules:
@@ -26,3 +25,33 @@ spec:
     - name: cv-service
       port: 80
       weight: 1
+
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: cv-redirect
+  namespace: default
+
+spec:
+  parentRefs:
+  - name: gateway-api
+    sectionName: http
+    kind: Gateway
+  - name: gateway-api
+    sectionName: https
+    kind: Gateway
+
+  hostnames:
+  - cv.isujith.dev
+
+  rules:
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /
+    filters:
+    - type: RequestRedirect
+      requestRedirect:
+        hostname: isujith.dev
+        statusCode: 301
